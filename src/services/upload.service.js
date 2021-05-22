@@ -22,7 +22,7 @@ const streamUpload = (req) => {
 };
 const streamMultiUpload = async (file) => {
   return new Promise((resolve) => {
-    cloudinary.uploader.upload(file, (err, res) => {
+    cloudinary.uploader.upload(file, { resource_type: 'video' }, (err, res) => {
       if (err) return res.json('loi upload');
       // console.log(res.secure_url);
       resolve(res.secure_url);
